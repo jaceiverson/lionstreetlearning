@@ -269,10 +269,11 @@ p {
   z-index: 100;
   transition: all var(--ease);
   padding-block: var(--sp-md);
+  background-color: var(--clr-surface);
+  box-shadow: var(--sh-sm);
 }
 
 .nav.scrolled {
-  background-color: var(--clr-surface);
   box-shadow: var(--sh-md);
   padding-block: 0.75rem;
 }
@@ -313,6 +314,25 @@ p {
   transform: rotate(-5deg) scale(1.05);
 }
 
+.nav__logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  transition: transform var(--ease);
+}
+
+.nav__logo:hover .nav__logo-img {
+  transform: scale(1.05);
+}
+
+.footer__logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
 .nav__logo-text {
   display: flex;
   flex-direction: column;
@@ -336,8 +356,6 @@ p {
 }
 
 /* Light variant (dark hero backgrounds) */
-.nav--light:not(.scrolled) .nav__logo-name { color: #fff; }
-.nav--light:not(.scrolled) .nav__logo-tagline { color: rgba(255, 255, 255, 0.6); }
 
 /* Menu */
 .nav__menu {
@@ -380,10 +398,6 @@ p {
 .nav__link:hover::after,
 .nav__link.active::after { width: 100%; }
 
-.nav--light:not(.scrolled) .nav__link { color: rgba(255, 255, 255, 0.8); }
-.nav--light:not(.scrolled) .nav__link:hover,
-.nav--light:not(.scrolled) .nav__link.active { color: #fff; }
-.nav--light:not(.scrolled) .nav__link::after { background-color: #fff; }
 
 /* Hamburger */
 .nav__hamburger {
@@ -405,7 +419,6 @@ p {
   transition: all var(--ease);
 }
 
-.nav--light:not(.scrolled) .nav__hamburger span { background-color: #fff; }
 
 .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav__hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
@@ -659,6 +672,13 @@ p {
   gap: var(--sp-2xl);
   align-items: center;
   padding-bottom: var(--sp-2xl);
+}
+
+.hero__logo {
+  height: 240px;
+  width: auto;
+  display: block;
+  margin-bottom: var(--sp-md);
 }
 
 .hero__eyebrow {
@@ -1584,6 +1604,7 @@ p {
     text-align: center;
   }
 
+  .hero__logo { margin-inline: auto; height: 180px; }
   .hero__lead { max-width: none; margin-inline: auto; }
   .hero__actions { justify-content: center; }
   .hero__trust { justify-content: center; }
