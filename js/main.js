@@ -154,10 +154,42 @@
     });
   });
 
-  // ── Contact Form (basic client-side feedback) ────────────
-  const form = document.querySelector('.contact-form');
+  // ── Contact Form — Web3Forms submission ──────────────────
+  const form        = document.querySelector('.contact-form');
+  const modal       = document.getElementById('success-modal');
+  const modalClose  = document.getElementById('modal-close');
+  const modalCta    = document.getElementById('modal-cta');
+
+  function openModal() {
+    modal.hidden = false;
+    requestAnimationFrame(() => modal.classList.add('visible'));
+    document.body.style.overflow = 'hidden';
+    modalCta.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('visible');
+    document.body.style.overflow = '';
+    setTimeout(() => { modal.hidden = true; }, 300);
+  }
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalCta)   modalCta.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.hidden) closeModal();
+  });
+
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const submitBtn = form.querySelector('[type="submit"]');
@@ -166,18 +198,35 @@
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending…';
 
-      // Simulate async submission (replace with real endpoint/Formspree/Netlify Forms)
-      setTimeout(() => {
-        submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent!';
-        submitBtn.style.backgroundColor = 'var(--clr-secondary)';
-        form.reset();
+      try {
+        const data = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data,
+        });
 
+        const result = await response.json();
+
+        if (result.success) {
+          form.reset();
+          openModal();
+        } else {
+          throw new Error(result.message || 'Submission failed.');
+        }
+      } catch (err) {
+        submitBtn.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Something went wrong — please try again.';
+        submitBtn.style.backgroundColor = '#e05252';
+        console.error('Form error:', err);
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
           submitBtn.style.backgroundColor = '';
-        }, 4000);
-      }, 1500);
+        }, 5000);
+        return;
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
     });
   }
 

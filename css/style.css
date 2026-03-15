@@ -3,6 +3,23 @@
    Version: 1.0.0
    ============================================================ */
 
+/* ── 0. Custom Fonts ────────────────────────────────────── */
+@font-face {
+  font-family: 'MadelynRough';
+  src: url('../fonts/tester.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MadelynRegular';
+  src: url('../fonts/madelyn-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── 1. CSS Variables (Design Tokens) ───────────────────── */
 :root {
   /* Brand Colors */
@@ -668,7 +685,7 @@ p {
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 6fr 5fr;
   gap: var(--sp-2xl);
   align-items: center;
   padding-bottom: var(--sp-2xl);
@@ -702,6 +719,10 @@ p {
 
 .hero h1 .highlight {
   color: var(--clr-primary);
+  font-family: 'MadelynRegular', cursive;
+  font-weight: normal;
+  font-size: 1.75em;
+  line-height: 1;
 }
 
 .hero__lead {
@@ -753,7 +774,7 @@ p {
 .hero__image-wrap { position: relative; }
 
 .hero__image {
-  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  border-radius: var(--r-xl);
   overflow: hidden;
   box-shadow: var(--sh-xl);
 }
@@ -762,6 +783,7 @@ p {
   width: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
+  object-position: 75% center;
 }
 
 /* Floating badge cards */
@@ -837,9 +859,11 @@ p {
 
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
   gap: var(--sp-lg);
+  max-width: 800px;
+  margin-inline: auto;
 }
 
 .stats__item {
@@ -1327,7 +1351,117 @@ p {
 
 .value-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
 
-/* ── 18. SERVICES PAGE ──────────────────────────────────── */
+/* ── 18. TIMELINE (About Page) ──────────────────────────── */
+.timeline {
+  position: relative;
+  padding-block: var(--sp-lg);
+}
+
+/* Center vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--clr-primary) 8%,
+    var(--clr-primary) 92%,
+    transparent 100%
+  );
+}
+
+.timeline__entry {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  grid-template-areas: "image dot content";
+  gap: 0 var(--sp-xl);
+  align-items: center;
+  margin-bottom: var(--sp-3xl);
+}
+
+.timeline__entry:last-child { margin-bottom: 0; }
+
+.timeline__entry--reverse {
+  grid-template-areas: "content dot image";
+}
+
+/* Image */
+.timeline__image {
+  grid-area: image;
+}
+
+.timeline__image img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xl);
+  display: block;
+}
+
+/* Center dot */
+.timeline__dot {
+  grid-area: dot;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.timeline__dot-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--clr-surface);
+  border: 3px solid var(--clr-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--clr-primary-dark);
+  box-shadow: 0 0 0 6px var(--clr-primary-light);
+  flex-shrink: 0;
+}
+
+/* Text content */
+.timeline__content {
+  grid-area: content;
+}
+
+.timeline__entry--reverse .timeline__content {
+  text-align: right;
+}
+
+.timeline__label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clr-primary-dark);
+  background: var(--clr-primary-light);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--r-full);
+  margin-bottom: 0.75rem;
+}
+
+.timeline__content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.timeline__content p {
+  font-size: 0.93rem;
+  line-height: 1.8;
+  max-width: none;
+}
+
+/* ── 19. SERVICES PAGE ──────────────────────────────────── */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1342,6 +1476,13 @@ p {
   display: grid;
   grid-template-columns: 2fr 3fr;
   transition: all var(--ease);
+}
+
+.svc-detail-card--full {
+  grid-column: 1 / -1;
+  max-width: 680px;
+  margin-inline: auto;
+  width: 100%;
 }
 
 .svc-detail-card:hover {
@@ -1569,7 +1710,100 @@ p {
   min-height: 120px;
 }
 
-/* ── 19. Animations ─────────────────────────────────────── */
+/* ── 19. Success Modal ──────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 69, 61, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-lg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.visible {
+  opacity: 1;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  background: var(--clr-surface);
+  border-radius: var(--r-xl);
+  padding: var(--sp-2xl);
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--sh-xl);
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.visible .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--clr-primary-light);
+  color: var(--clr-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all var(--ease);
+  border: none;
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  background: var(--clr-primary);
+  color: #fff;
+}
+
+.modal__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--clr-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--clr-primary-dark);
+  margin: 0 auto var(--sp-lg);
+}
+
+.modal h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.modal p {
+  max-width: none;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+.modal__cta {
+  margin-top: var(--sp-lg);
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── 20. Animations ─────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -1627,6 +1861,32 @@ p {
 
   .about-story__inner { grid-template-columns: 1fr; }
 
+  /* Timeline mobile */
+  .timeline::before {
+    left: 28px;
+    transform: none;
+  }
+
+  .timeline__entry,
+  .timeline__entry--reverse {
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "dot content"
+      ".   image";
+    gap: var(--sp-sm) var(--sp-md);
+    align-items: start;
+    margin-bottom: var(--sp-xl);
+  }
+
+  .timeline__entry--reverse .timeline__content {
+    text-align: left;
+  }
+
+  .timeline__image {
+    margin-top: var(--sp-sm);
+  }
+
   .values__grid { grid-template-columns: repeat(2, 1fr); }
 
   .services-grid { grid-template-columns: 1fr; }
@@ -1663,8 +1923,45 @@ p {
   .process__steps { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 
-  .stats__grid { grid-template-columns: 1fr 1fr; }
+  .stats__grid { grid-template-columns: repeat(3, 1fr); max-width: none; }
   .stats__item::after { display: none; }
 
   .contact-form { padding: var(--sp-lg); }
+}
+
+/* ── Coming Soon ──────────────────────────────────────────── */
+.coming-soon {
+  padding: var(--sp-3xl) var(--sp-md);
+  background: var(--clr-bg);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.coming-soon__inner {
+  max-width: 560px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+.coming-soon__icon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.coming-soon h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--clr-heading);
+  margin: 0;
+}
+
+.coming-soon p {
+  font-size: 1.125rem;
+  color: var(--clr-body);
+  max-width: 44ch;
+  margin: 0;
 }

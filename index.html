@@ -20,7 +20,7 @@
   <!-- ── Navigation ─────────────────────────────────────── -->
   <header class="nav" id="main-nav">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="Lion Street Learning — Home">
+      <a href="/" class="nav__logo" aria-label="Lion Street Learning — Home">
         <img class="nav__logo-img" src="images/main-logo.png" alt="Lion Street Learning logo" width="44" height="44" />
         <div class="nav__logo-text">
           <span class="nav__logo-name">Lion Street Learning</span>
@@ -30,13 +30,14 @@
 
       <nav class="nav__menu" aria-label="Primary navigation">
         <ul class="nav__links" role="list">
-          <li><a href="index.html"     class="nav__link">Home</a></li>
-          <li><a href="about.html"     class="nav__link">About Me</a></li>
-          <li><a href="services.html"  class="nav__link">Services</a></li>
-          <li><a href="resources.html" class="nav__link">Resources</a></li>
+          <li><a href="/"     class="nav__link">Home</a></li>
+          <li><a href="about"     class="nav__link">About Me</a></li>
+          <li><a href="services"  class="nav__link">Services</a></li>
+          <li><a href="resources" class="nav__link">Resources</a></li>
+          <li><a href="parent-stories" class="nav__link">Parent Stories</a></li>
         </ul>
         <div class="nav__cta">
-          <a href="services.html#contact" class="btn btn--primary">
+          <a href="services#contact" class="btn btn--primary">
             <i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Session
           </a>
         </div>
@@ -48,12 +49,13 @@
     </div>
 
     <div class="nav__mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-      <a href="index.html"     class="nav__mobile-link">Home</a>
-      <a href="about.html"     class="nav__mobile-link">About Me</a>
-      <a href="services.html"  class="nav__mobile-link">Services</a>
-      <a href="resources.html" class="nav__mobile-link">Resources</a>
+      <a href="/"     class="nav__mobile-link">Home</a>
+      <a href="about"     class="nav__mobile-link">About Me</a>
+      <a href="services"  class="nav__mobile-link">Services</a>
+      <a href="resources" class="nav__mobile-link">Resources</a>
+      <a href="parent-stories" class="nav__mobile-link">Parent Stories</a>
       <div class="nav__mobile-cta">
-        <a href="services.html#contact" class="btn btn--primary">Book a Session</a>
+        <a href="services#contact" class="btn btn--primary">Book a Session</a>
       </div>
     </div>
   </header>
@@ -66,83 +68,39 @@
         <div class="hero__inner">
 
           <div class="hero__content">
-            <img
-              class="hero__logo"
-              src="images/main-logo.png"
-              alt="Lion Street Learning"
-              width="160"
-              height="160"
-            />
             <span class="hero__eyebrow">
               <i class="fa-solid fa-star" aria-hidden="true"></i>
               Certified Speech &amp; Education Specialist
             </span>
 
             <h1>
-              Helping Every Child Find Their
-              <span class="highlight">Voice &amp; Confidence</span>
+              The Intersection of<br/>
+              <span class="highlight">Learning &amp; Play</span>
             </h1>
 
             <p class="hero__lead">
-              Personalized speech development and learning support designed to unlock
-              every child's unique potential — in a warm, encouraging environment they'll love.
+              Helping children find their voice through personalized pediatric speech therapy focused on speech sounds, early language development, and literacy.
             </p>
 
             <div class="hero__actions">
-              <a href="services.html#contact" class="btn btn--primary btn--lg">
+              <a href="services#contact" class="btn btn--primary btn--lg">
                 <i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Free Consultation
               </a>
-              <a href="services.html" class="btn btn--outline btn--lg">
+              <a href="services" class="btn btn--outline btn--lg">
                 Explore Services
               </a>
             </div>
 
-            <div class="hero__trust">
-              <div class="hero__trust-avatars" aria-hidden="true">
-                <div class="hero__trust-avatar">
-                  <img src="https://placehold.co/32x32/f5a623/ffffff?text=P" alt="Parent" />
-                </div>
-                <div class="hero__trust-avatar">
-                  <img src="https://placehold.co/32x32/2d5b8e/ffffff?text=P" alt="Parent" />
-                </div>
-                <div class="hero__trust-avatar">
-                  <img src="https://placehold.co/32x32/1e3a5f/ffffff?text=P" alt="Parent" />
-                </div>
-              </div>
-              <p class="hero__trust-text">
-                Trusted by <strong>200+ families</strong> across the community
-              </p>
-            </div>
-          </div>
+          </div><!-- /hero__content -->
 
           <div class="hero__image-wrap">
             <div class="hero__image">
               <img
-                src="https://placehold.co/700x875/e8d5b7/5c4a2a?text=Hero+Image"
+                src="images/joint-attention.jpg"
                 alt="Child engaged in a learning session"
                 width="700"
                 height="875"
               />
-            </div>
-
-            <div class="hero__badge hero__badge--tl">
-              <div class="hero__badge-icon hero__badge-icon--gold">
-                <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-              </div>
-              <div>
-                <div class="hero__badge-label">Success Rate</div>
-                <div class="hero__badge-value">98% of students<br/>show improvement</div>
-              </div>
-            </div>
-
-            <div class="hero__badge hero__badge--br">
-              <div class="hero__badge-icon hero__badge-icon--blue">
-                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-              </div>
-              <div>
-                <div class="hero__badge-label">Experience</div>
-                <div class="hero__badge-value">10+ Years<br/>in Education</div>
-              </div>
             </div>
           </div>
 
@@ -159,15 +117,11 @@
             <div class="stats__label">Families Served</div>
           </div>
           <div class="stats__item reveal reveal-delay-1">
-            <div class="stats__number" data-target="10" data-suffix="+">10+</div>
+            <div class="stats__number" data-target="4" data-suffix="">4</div>
             <div class="stats__label">Years of Experience</div>
           </div>
-          <div class="stats__item reveal reveal-delay-2">
-            <div class="stats__number" data-target="98" data-suffix="%">98%</div>
-            <div class="stats__label">Student Improvement Rate</div>
-          </div>
           <div class="stats__item reveal reveal-delay-3">
-            <div class="stats__number" data-target="6" data-suffix="">6</div>
+            <div class="stats__number" data-target="4" data-suffix="+">5</div>
             <div class="stats__label">Specialized Services</div>
           </div>
         </div>
@@ -221,7 +175,7 @@
               <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
             </div>
             <h3>Progress Tracking</h3>
-            <p>Regular assessments and transparent reporting keep you informed about your child's growth and celebrate achievements together.</p>
+            <p>Regular assessments and transparent reporting keep you informed about your child's growth so we can celebrate achievements together.</p>
           </article>
 
           <article class="feature-card reveal reveal-delay-3">
@@ -229,7 +183,7 @@
               <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
             </div>
             <h3>Flexible Scheduling</h3>
-            <p>We work around your family's busy schedule with morning, afternoon, and weekend session options available.</p>
+            <p>We work with your family’s busy schedule by offering morning, afternoon, and evening appointments.</p>
           </article>
         </div>
       </div>
@@ -240,7 +194,7 @@
       <div class="container">
         <header class="section-header reveal">
           <span class="eyebrow">What We Offer</span>
-          <h2 id="services-preview-heading">Services Designed for Little Learners</h2>
+          <h2 id="services-preview-heading">Services Designed with Your Child in Mind</h2>
           <p>From speech therapy to reading support, our programs meet children where they are and guide them to where they can be.</p>
         </header>
 
@@ -248,14 +202,14 @@
           <article class="svc-card reveal reveal-delay-1">
             <img
               class="svc-card__img"
-              src="https://placehold.co/600x338/f5a623/ffffff?text=Speech+Therapy"
-              alt="Speech language therapy session"
+              src="images/artic.jpg"
+              alt="Speech therapy session with a child"
             />
             <div class="svc-card__body">
               <span class="svc-card__tag">Speech</span>
-              <h3>Speech Language Therapy</h3>
-              <p>Targeted therapy addressing articulation, fluency, voice, and language comprehension for ages 2–12.</p>
-              <a href="services.html" class="svc-card__link">
+              <h3>Speech Therapy</h3>
+              <p>Comprehensive, individualized therapy particularly addressing speech sound development and articulation.</p>
+              <a href="services" class="svc-card__link">
                 Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
@@ -264,14 +218,14 @@
           <article class="svc-card reveal reveal-delay-2">
             <img
               class="svc-card__img"
-              src="https://placehold.co/600x338/1e3a5f/ffffff?text=Early+Literacy"
-              alt="Early literacy development session"
+              src="images/early-literacy-artic-materials.jpg"
+              alt="Early literacy development materials and activities"
             />
             <div class="svc-card__body">
               <span class="svc-card__tag">Literacy</span>
               <h3>Early Literacy Development</h3>
-              <p>Building strong reading and writing foundations through phonics, vocabulary, and comprehension skills.</p>
-              <a href="services.html" class="svc-card__link">
+              <p>Building strong reading and writing foundations for young learners using playful, multi-sensory techniques grounded in the science of reading.</p>
+              <a href="services" class="svc-card__link">
                 Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
@@ -280,14 +234,14 @@
           <article class="svc-card reveal reveal-delay-3">
             <img
               class="svc-card__img"
-              src="https://placehold.co/600x338/2d5b8e/ffffff?text=One-on-One+Tutoring"
-              alt="One-on-one tutoring session"
+              src="images/shared-story-toddler-workshop.jpg"
+              alt="Children in a group workshop session"
             />
             <div class="svc-card__body">
-              <span class="svc-card__tag">Tutoring</span>
-              <h3>One-on-One Tutoring</h3>
-              <p>Personalized academic support that builds confidence and closes learning gaps at the child's own pace.</p>
-              <a href="services.html" class="svc-card__link">
+              <span class="svc-card__tag">Group</span>
+              <h3>Group Workshops</h3>
+              <p>Workshops designed to support communication, connection, and learning through engaging small-group experiences. Offerings may include toddler language workshops and other skill-building groups depending on the time of year.</p>
+              <a href="services" class="svc-card__link">
                 Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
@@ -295,7 +249,7 @@
         </div>
 
         <div class="text-center" style="margin-top: 3rem;">
-          <a href="services.html" class="btn btn--secondary btn--lg">View All Services</a>
+          <a href="services" class="btn btn--secondary btn--lg">View All Services</a>
         </div>
       </div>
     </section>
@@ -308,15 +262,11 @@
           <div class="about-snippet__image reveal">
             <div class="about-snippet__img">
               <img
-                src="https://placehold.co/600x800/1e3a5f/ffffff?text=Educator+Photo"
+                src="images/shared-story-reading.jpg"
                 alt="Portrait of the educator"
                 width="600"
                 height="800"
               />
-            </div>
-            <div class="about-snippet__years">
-              <div class="about-snippet__years-num">10+</div>
-              <div class="about-snippet__years-label">Years of Experience</div>
             </div>
           </div>
 
@@ -335,70 +285,9 @@
               <li class="checklist-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Parent Coaching</li>
             </ul>
 
-            <a href="about.html" class="btn btn--primary btn--lg">Learn More About Me</a>
+            <a href="about" class="btn btn--primary btn--lg">Learn More About Me</a>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Testimonials ────────────────────────────────────── -->
-    <section class="testimonials" aria-labelledby="testimonials-heading">
-      <div class="container">
-        <header class="section-header reveal">
-          <span class="eyebrow">Parent Stories</span>
-          <h2 id="testimonials-heading">What Families Are Saying</h2>
-          <p>Real words from the families we've had the privilege of working with.</p>
-        </header>
-
-        <div class="testimonials__grid">
-          <article class="testi-card reveal reveal-delay-1">
-            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>
-              <p class="testi-card__quote">"My daughter went from barely speaking in full sentences to confidently presenting at her school's science fair. Lion Street Learning truly transformed her life. We couldn't be more grateful."</p>
-            </blockquote>
-            <div class="testi-card__author">
-              <div class="testi-card__avatar">
-                <img src="https://placehold.co/44x44/f5a623/ffffff?text=S" alt="Sarah M." />
-              </div>
-              <div>
-                <div class="testi-card__name">Sarah M.</div>
-                <div class="testi-card__role">Parent of Emma, age 7</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="testi-card reveal reveal-delay-2">
-            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>
-              <p class="testi-card__quote">"After just three months, our son's reading level jumped two full grades. The sessions are engaging, the progress is real, and the support for us as parents has been invaluable."</p>
-            </blockquote>
-            <div class="testi-card__author">
-              <div class="testi-card__avatar">
-                <img src="https://placehold.co/44x44/2d5b8e/ffffff?text=J" alt="James &amp; Linda K." />
-              </div>
-              <div>
-                <div class="testi-card__name">James &amp; Linda K.</div>
-                <div class="testi-card__role">Parents of Noah, age 9</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="testi-card reveal reveal-delay-3">
-            <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>
-              <p class="testi-card__quote">"I was nervous about seeking help, but from the very first session I knew we were in the right hands. Warm, professional, and incredibly effective. Our whole family has grown through this process."</p>
-            </blockquote>
-            <div class="testi-card__author">
-              <div class="testi-card__avatar">
-                <img src="https://placehold.co/44x44/d4850a/ffffff?text=M" alt="Maria T." />
-              </div>
-              <div>
-                <div class="testi-card__name">Maria T.</div>
-                <div class="testi-card__role">Parent of twins, ages 5 &amp; 5</div>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -412,10 +301,10 @@
           <h2>Ready to Take the First Step?</h2>
           <p>Book a free 30-minute consultation and let's talk about how we can support your child's unique journey.</p>
           <div class="cta-banner__actions">
-            <a href="services.html#contact" class="btn btn--secondary btn--lg">
+            <a href="services#contact" class="btn btn--secondary btn--lg">
               <i class="fa-regular fa-calendar" aria-hidden="true"></i> Book Free Consultation
             </a>
-            <a href="services.html" class="btn btn--outline-white btn--lg">View Services</a>
+            <a href="services" class="btn btn--outline-white btn--lg">View Services</a>
           </div>
         </div>
       </div>
@@ -433,33 +322,33 @@
             <img class="footer__logo-img" src="images/main-logo.png" alt="Lion Street Learning logo" width="40" height="40" />
             <div class="footer__logo-name">Lion Street Learning</div>
           </div>
-          <p class="footer__tagline">Helping every child find their voice, confidence, and love of learning.</p>
+          <p class="footer__tagline">The Intersection of Learning &amp; Play</p>
           <div class="footer__social" aria-label="Social media links">
-            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/lionstreetlearning/" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/natalie-iverson/" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
 
         <div>
           <h3 class="footer__col-title">Quick Links</h3>
           <ul class="footer__links">
-            <li><a href="index.html"    class="footer__link">Home</a></li>
-            <li><a href="about.html"    class="footer__link">About Me</a></li>
-            <li><a href="services.html" class="footer__link">Services</a></li>
-            <li><a href="services.html#contact" class="footer__link">Book a Session</a></li>
+            <li><a href="/"    class="footer__link">Home</a></li>
+            <li><a href="about"    class="footer__link">About Me</a></li>
+            <li><a href="services" class="footer__link">Services</a></li>
+            <li><a href="resources" class="footer__link">Resources</a></li>
+            <li><a href="parent-stories" class="footer__link">Parent Stories</a></li>
+            <li><a href="services#contact" class="footer__link">Book a Session</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer__col-title">Services</h3>
           <ul class="footer__links">
-            <li><a href="services.html" class="footer__link">Speech Therapy</a></li>
-            <li><a href="services.html" class="footer__link">Early Literacy</a></li>
-            <li><a href="services.html" class="footer__link">Reading Intervention</a></li>
-            <li><a href="services.html" class="footer__link">One-on-One Tutoring</a></li>
-            <li><a href="services.html" class="footer__link">Group Sessions</a></li>
-            <li><a href="services.html" class="footer__link">Parent Coaching</a></li>
+            <li><a href="services" class="footer__link">Speech Therapy</a></li>
+            <li><a href="services" class="footer__link">Early Literacy Development</a></li>
+            <li><a href="services" class="footer__link">Reading Intervention</a></li>
+            <li><a href="services" class="footer__link">Group Workshops</a></li>
+            <li><a href="services" class="footer__link">Parent Coaching</a></li>
           </ul>
         </div>
 
@@ -471,12 +360,8 @@
               <a href="mailto:hello@lionstreetlearning.com" class="footer__link">hello@lionstreetlearning.com</a>
             </div>
             <div class="footer__contact-item">
-              <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              <a href="tel:+15551234567" class="footer__link">(555) 123-4567</a>
-            </div>
-            <div class="footer__contact-item">
               <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>City, State [Location Placeholder]</span>
+              <span>Northern Utah</span>
             </div>
           </address>
         </div>
@@ -485,10 +370,6 @@
 
       <div class="footer__bottom">
         <p>&copy; <span id="year"></span> Lion Street Learning. All rights reserved.</p>
-        <nav class="footer__legal" aria-label="Legal links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </nav>
       </div>
     </div>
   </footer>

@@ -19,7 +19,7 @@
   <!-- ── Navigation ─────────────────────────────────────── -->
   <header class="nav nav--light" id="main-nav">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="Lion Street Learning — Home">
+      <a href="/" class="nav__logo" aria-label="Lion Street Learning — Home">
         <img class="nav__logo-img" src="images/main-logo.png" alt="Lion Street Learning logo" width="44" height="44" />
         <div class="nav__logo-text">
           <span class="nav__logo-name">Lion Street Learning</span>
@@ -29,13 +29,14 @@
 
       <nav class="nav__menu" aria-label="Primary navigation">
         <ul class="nav__links" role="list">
-          <li><a href="index.html"     class="nav__link">Home</a></li>
-          <li><a href="about.html"     class="nav__link active">About Me</a></li>
-          <li><a href="services.html"  class="nav__link">Services</a></li>
-          <li><a href="resources.html" class="nav__link">Resources</a></li>
+          <li><a href="/"     class="nav__link">Home</a></li>
+          <li><a href="about"     class="nav__link active">About Me</a></li>
+          <li><a href="services"  class="nav__link">Services</a></li>
+          <li><a href="resources" class="nav__link">Resources</a></li>
+          <li><a href="parent-stories" class="nav__link">Parent Stories</a></li>
         </ul>
         <div class="nav__cta">
-          <a href="services.html#contact" class="btn btn--primary">
+          <a href="services#contact" class="btn btn--primary">
             <i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Session
           </a>
         </div>
@@ -47,12 +48,13 @@
     </div>
 
     <div class="nav__mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-      <a href="index.html"     class="nav__mobile-link">Home</a>
-      <a href="about.html"     class="nav__mobile-link active">About Me</a>
-      <a href="services.html"  class="nav__mobile-link">Services</a>
-      <a href="resources.html" class="nav__mobile-link">Resources</a>
+      <a href="/"     class="nav__mobile-link">Home</a>
+      <a href="about"     class="nav__mobile-link active">About Me</a>
+      <a href="services"  class="nav__mobile-link">Services</a>
+      <a href="resources" class="nav__mobile-link">Resources</a>
+      <a href="parent-stories" class="nav__mobile-link">Parent Stories</a>
       <div class="nav__mobile-cta">
-        <a href="services.html#contact" class="btn btn--primary">Book a Session</a>
+        <a href="services#contact" class="btn btn--primary">Book a Session</a>
       </div>
     </div>
   </header>
@@ -65,7 +67,6 @@
       <div class="page-hero__deco page-hero__deco--2" aria-hidden="true"></div>
       <div class="container">
         <div class="page-hero__content">
-          <span class="page-hero__eyebrow">About Me</span>
           <h1>A Specialist Who Truly Cares</h1>
           <p class="page-hero__lead">
             Get to know the person behind Lion Street Learning — my story, my qualifications,
@@ -83,7 +84,7 @@
           <div class="about-story__image reveal">
             <div class="about-story__img-wrap">
               <img
-                src="https://placehold.co/560x700/1e3a5f/ffffff?text=Educator+Photo"
+                src="images/primary-headshot.jpg"
                 alt="Portrait of the educator"
                 width="560"
                 height="700"
@@ -102,7 +103,7 @@
               <div class="story-badge__icon">
                 <i class="fa-solid fa-star" aria-hidden="true"></i>
               </div>
-              <div class="story-badge__value">10+ Years</div>
+              <div class="story-badge__value">5+ Years</div>
               <div class="story-badge__sub">Working with children</div>
             </div>
           </div>
@@ -115,9 +116,104 @@
             <p>That's why I founded Lion Street Learning: to create a space where children don't just receive therapy or tutoring, but gain the confidence and skills that open doors for a lifetime.</p>
             <p>When I'm not working with children, you'll find me reading, hiking with my dog, or volunteering with local literacy nonprofits. I live and breathe this work — and I'd be honored to support your family.</p>
 
-            <a href="services.html#contact" class="btn btn--primary btn--lg" style="margin-top: 1rem;">
+            <a href="services#contact" class="btn btn--primary btn--lg" style="margin-top: 1rem;">
               <i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Free Consultation
             </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── My Journey (Timeline) ────────────────────────────── -->
+    <section class="section section--alt" aria-labelledby="journey-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="eyebrow">How I Got Here</span>
+          <h2 id="journey-heading">My Journey</h2>
+          <p>Every step along the way shaped the specialist — and the person — I am today.</p>
+        </header>
+
+        <div class="timeline">
+
+          <!-- Entry 1: Utah State University — image left, text right -->
+          <div class="timeline__entry reveal">
+            <div class="timeline__image">
+              <img
+                src="images/usu-graduation.jpg"
+                alt="Graduation at Utah State University"
+              />
+            </div>
+            <div class="timeline__dot">
+              <div class="timeline__dot-circle">
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="timeline__content">
+              <span class="timeline__label">Where it began</span>
+              <h3>Utah State University</h3>
+              <p>My passion for communication sciences took root at Utah State, where I completed my undergraduate studies in Communication Disorders. It was here that I first understood the profound impact a skilled specialist can have on a child's life — and knew this was the path for me.</p>
+            </div>
+          </div>
+
+          <!-- Entry 2: Syracuse University — text left, image right -->
+          <div class="timeline__entry timeline__entry--reverse reveal">
+            <div class="timeline__image">
+              <img
+                src="images/su-grad-fam-pic.jpg"
+                alt="Graduation day at Syracuse University with family"
+              />
+            </div>
+            <div class="timeline__dot">
+              <div class="timeline__dot-circle">
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="timeline__content">
+              <span class="timeline__label">Graduate school</span>
+              <h3>Syracuse University</h3>
+              <p>I earned my Master of Science in Speech-Language Pathology from Syracuse University, one of the nation's top programs. Through rigorous clinical training across schools, hospitals, and early intervention settings, I built the evidence-based foundation that shapes every session I run today.</p>
+            </div>
+          </div>
+
+          <!-- Entry 3: Ability Innovations — image left, text right -->
+          <div class="timeline__entry reveal">
+            <div class="timeline__image">
+              <img
+                src="images/ability-innovations.png"
+                alt="Professional work at Ability Innovations"
+              />
+            </div>
+            <div class="timeline__dot">
+              <div class="timeline__dot-circle">
+                <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="timeline__content">
+              <span class="timeline__label">Clinical experience</span>
+              <h3>Ability Innovations</h3>
+              <p>My first professional role brought me to Ability Innovations, where I worked directly with children with a wide range of developmental and communication differences. This experience deepened my commitment to individualized care and reinforced my belief that every child — regardless of their starting point — deserves to be heard.</p>
+            </div>
+          </div>
+
+          <!-- Entry 4: Today — text left, image right -->
+          <div class="timeline__entry timeline__entry--reverse reveal">
+            <div class="timeline__image">
+              <img
+                src="images/shared-story-toddler-workshop.jpg"
+                alt="Reading with children in a group session today"
+              />
+            </div>
+            <div class="timeline__dot">
+              <div class="timeline__dot-circle">
+                <i class="fa-solid fa-star" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="timeline__content">
+              <span class="timeline__label">Today</span>
+              <h3>Lion Street Learning</h3>
+              <p>Today, I bring everything I've learned — every classroom, every clinic, every child — into Lion Street Learning. This practice is the culmination of years of training, experience, and heart. I am so grateful to do this work every day, and even more grateful for the families who trust me with the most important people in their lives.</p>
+            </div>
           </div>
 
         </div>
@@ -265,10 +361,10 @@
           <h2>Let's Start Your Child's Journey Together</h2>
           <p>Book a free 30-minute consultation and let's discover how we can help your child grow, communicate, and shine.</p>
           <div class="cta-banner__actions">
-            <a href="services.html#contact" class="btn btn--secondary btn--lg">
+            <a href="services#contact" class="btn btn--secondary btn--lg">
               <i class="fa-regular fa-calendar" aria-hidden="true"></i> Book Free Consultation
             </a>
-            <a href="services.html" class="btn btn--outline-white btn--lg">View Services</a>
+            <a href="services" class="btn btn--outline-white btn--lg">View Services</a>
           </div>
         </div>
       </div>
@@ -286,33 +382,33 @@
             <img class="footer__logo-img" src="images/main-logo.png" alt="Lion Street Learning logo" width="40" height="40" />
             <div class="footer__logo-name">Lion Street Learning</div>
           </div>
-          <p class="footer__tagline">Helping every child find their voice, confidence, and love of learning.</p>
+          <p class="footer__tagline">The Intersection of Learning &amp; Play</p>
           <div class="footer__social" aria-label="Social media links">
-            <a href="#" class="footer__social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="footer__social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/lionstreetlearning/" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/natalie-iverson/" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
 
         <div>
           <h3 class="footer__col-title">Quick Links</h3>
           <ul class="footer__links">
-            <li><a href="index.html"    class="footer__link">Home</a></li>
-            <li><a href="about.html"    class="footer__link">About Me</a></li>
-            <li><a href="services.html" class="footer__link">Services</a></li>
-            <li><a href="services.html#contact" class="footer__link">Book a Session</a></li>
+            <li><a href="/"    class="footer__link">Home</a></li>
+            <li><a href="about"    class="footer__link">About Me</a></li>
+            <li><a href="services" class="footer__link">Services</a></li>
+            <li><a href="resources" class="footer__link">Resources</a></li>
+            <li><a href="parent-stories" class="footer__link">Parent Stories</a></li>
+            <li><a href="services#contact" class="footer__link">Book a Session</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer__col-title">Services</h3>
           <ul class="footer__links">
-            <li><a href="services.html" class="footer__link">Speech Therapy</a></li>
-            <li><a href="services.html" class="footer__link">Early Literacy</a></li>
-            <li><a href="services.html" class="footer__link">Reading Intervention</a></li>
-            <li><a href="services.html" class="footer__link">One-on-One Tutoring</a></li>
-            <li><a href="services.html" class="footer__link">Group Sessions</a></li>
-            <li><a href="services.html" class="footer__link">Parent Coaching</a></li>
+            <li><a href="services" class="footer__link">Speech Therapy</a></li>
+            <li><a href="services" class="footer__link">Early Literacy Development</a></li>
+            <li><a href="services" class="footer__link">Reading Intervention</a></li>
+            <li><a href="services" class="footer__link">Group Workshops</a></li>
+            <li><a href="services" class="footer__link">Parent Coaching</a></li>
           </ul>
         </div>
 
@@ -324,12 +420,8 @@
               <a href="mailto:hello@lionstreetlearning.com" class="footer__link">hello@lionstreetlearning.com</a>
             </div>
             <div class="footer__contact-item">
-              <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              <a href="tel:+15551234567" class="footer__link">(555) 123-4567</a>
-            </div>
-            <div class="footer__contact-item">
               <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-              <span>City, State [Location Placeholder]</span>
+              <span>Northern Utah</span>
             </div>
           </address>
         </div>
@@ -338,10 +430,6 @@
 
       <div class="footer__bottom">
         <p>&copy; <span id="year"></span> Lion Street Learning. All rights reserved.</p>
-        <nav class="footer__legal" aria-label="Legal links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </nav>
       </div>
     </div>
   </footer>
