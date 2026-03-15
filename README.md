@@ -11,11 +11,14 @@ lionstreetlearning/
 ├── index.html          # Home page
 ├── about.html          # About Me page
 ├── services.html       # Services page + contact form
+├── resources.html      # Resources (coming soon)
+├── parent-stories.html # Parent Stories (coming soon)
 ├── css/
-│   └── style.css       # Complete design system & all page styles
+│   └── style.css       # Design system & all page styles
 ├── js/
-│   └── main.js         # Navigation, FAQ accordion, scroll reveal, counters
-├── images/             # Drop production image assets here
+│   └── main.js         # Nav, FAQ accordion, scroll reveal, form submit, modal
+├── images/             # Site images (logo, hero, services, about, etc.)
+├── fonts/              # Self-hosted fonts (e.g. Madelyn)
 ├── CNAME               # Custom domain for GitHub Pages
 ├── .gitignore
 └── README.md
@@ -27,8 +30,8 @@ lionstreetlearning/
 
 - **Responsive** — mobile-first layout, works on all screen sizes
 - **Accessible** — semantic HTML5, ARIA labels, keyboard navigation, focus management
-- **Animated** — scroll-reveal (Intersection Observer), floating hero badges, counter animation
-- **Interactive** — mobile hamburger menu, FAQ accordion, sticky nav on scroll
+- **Animated** — scroll-reveal (Intersection Observer), counter animation
+- **Interactive** — mobile hamburger menu, FAQ accordion, sticky nav, contact form success modal
 - **No build tools** — pure HTML/CSS/JS, zero dependencies to install
 
 ---
@@ -37,36 +40,43 @@ lionstreetlearning/
 
 | Page | File | Description |
 |------|------|-------------|
-| Home | `index.html` | Hero, stats bar, features, services preview, about snippet, testimonials, CTA |
-| About Me | `about.html` | Story, credentials/certifications, values |
-| Services | `services.html` | 6 service cards, process steps, FAQ accordion, contact form |
+| Home | `index.html` | Hero, stats, features, services preview (Speech Therapy, Early Literacy, Group Workshops), about snippet, CTA |
+| About Me | `about.html` | Story, credentials, values, timeline (My Journey) |
+| Services | `services.html` | 5 service cards, process steps, FAQ accordion, contact form |
+| Resources | `resources.html` | Coming soon — tips, activities, guides |
+| Parent Stories | `parent-stories.html` | Coming soon — family stories and experiences |
+
+**Internal links** use `/` for home and `.html` for other pages (e.g. `about.html`, `services.html`) so GitHub Pages serves the correct file for each URL.
 
 ---
 
-## Replacing Placeholder Images
+## Local vs. live differences
 
-All images currently use [placehold.co](https://placehold.co) URLs. To swap in real assets:
+If the live site doesn’t match your local version:
 
-1. Add your production images to the `/images/` folder.
-2. Update the `src` attributes in each HTML file:
+1. **Hero, numbers, or other layout** — Push your latest commit and wait for GitHub Pages to rebuild (often 1–2 minutes). Do a hard refresh (Ctrl+Shift+R or Cmd+Shift+R) or try an incognito window so the browser isn’t using cached CSS/JS.
+2. **Resources / Parent Stories show a broken or unstyled page** — Links must point to `resources.html` and `parent-stories.html`. Plain paths like `/resources` don’t serve those files on GitHub Pages and can show an unstyled 404.
 
-```html
-<!-- Before (placeholder) -->
-<img src="https://placehold.co/700x875/e8d5b7/5c4a2a?text=Hero+Image" alt="..." />
+---
 
-<!-- After (your asset) -->
-<img src="images/hero-photo.webp" alt="..." />
-```
+## Images & Assets
 
-**Recommended image formats:** `.webp` (primary), `.jpg` (fallback)  
-**Recommended image sizes:**
+Production images live in `/images/` (e.g. `main-logo.png`, `artic.jpg`, `shared-story-reading.jpg`). To add or replace assets:
 
-| Use | Recommended Size |
-|-----|-----------------|
-| Hero image | 800 × 1000 px |
-| About/Educator photo | 600 × 750 px |
-| Service card images | 500 × 600 px |
-| Testimonial avatars | 100 × 100 px |
+1. Add files to `/images/` (lowercase, dashes for multi-word names).
+2. Update the relevant `src` in the HTML, e.g. `src="images/your-image.jpg"`.
+
+**Suggested sizes:** hero ~800×1000 px; service cards ~600×338 px; about/timeline as needed.
+
+---
+
+## Contact Form
+
+The contact form on the Services page uses **[Web3Forms](https://web3forms.com)** so submissions can be sent to an email (e.g. `hello@lionstreetlearning.com`) without a backend. To configure:
+
+1. Sign up at Web3Forms and get an access key.
+2. In `services.html`, set the hidden input `name="access_key"` to your key (replace any placeholder).
+3. Submissions show a success modal and optional redirect.
 
 ---
 
@@ -76,37 +86,31 @@ All images currently use [placehold.co](https://placehold.co) URLs. To swap in r
 
 ```bash
 git add .
-git commit -m "Initial site build"
+git commit -m "Update site"
 git push origin main
 ```
 
 ### Step 2 — Enable GitHub Pages
 
-1. Go to your repository on GitHub.
-2. Click **Settings** → **Pages** (left sidebar).
-3. Under **Source**, select:
-   - Branch: `main`
-   - Folder: `/ (root)`
-4. Click **Save**.
+1. Open the repo on GitHub → **Settings** → **Pages**.
+2. Under **Source**: Branch **main**, Folder **/ (root)**.
+3. Save. The site will be at `https://[your-username].github.io/lionstreetlearning/`.
 
-GitHub will publish your site at:  
-`https://[your-username].github.io/lionstreetlearning/`
+### Step 3 — Custom Domain
 
-### Step 3 — Add Your Custom Domain
-
-1. In **Settings → Pages**, enter your custom domain (e.g., `www.lionstreetlearning.com`) under **Custom domain**.
-2. Check **Enforce HTTPS** (available after DNS propagates, usually 24–48 hrs).
-3. GitHub will automatically create/update the `CNAME` file in your repo.
+1. Under **Settings → Pages**, set **Custom domain** (e.g. `www.lionstreetlearning.com`).
+2. After DNS propagates, enable **Enforce HTTPS**.
+3. The repo’s `CNAME` file should match the domain.
 
 ---
 
 ## Connecting a Custom Domain via Squarespace DNS
 
-> These steps assume your domain is **registered through Squarespace** (Domains panel) and you want to point it to GitHub Pages.
+If your domain is registered with **Squarespace** and you want it to point to GitHub Pages:
 
-### Step 1 — Get GitHub Pages IP Addresses
+### A records (root domain)
 
-GitHub Pages currently uses these A record IPs (verify at [GitHub Docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)):
+In Squarespace: **Domains** → your domain → **DNS Settings** → **DNS Records**. Add four A records for `@` with these values (TTL 3600):
 
 ```
 185.199.108.153
@@ -115,79 +119,40 @@ GitHub Pages currently uses these A record IPs (verify at [GitHub Docs](https://
 185.199.111.153
 ```
 
-### Step 2 — Configure DNS in Squarespace
+### CNAME (www)
 
-1. Log in to **Squarespace** → **Domains**.
-2. Click your domain → **DNS Settings** → **DNS Records**.
-3. Delete any existing **A records** pointing elsewhere.
-4. Add the following records:
+Add one CNAME: Host `www`, Value `[your-username].github.io`, TTL 3600.
 
-#### For the root domain (`lionstreetlearning.com`):
+### Verify
 
-| Type | Host | Value | TTL |
-|------|------|-------|-----|
-| A | `@` | `185.199.108.153` | 3600 |
-| A | `@` | `185.199.109.153` | 3600 |
-| A | `@` | `185.199.110.153` | 3600 |
-| A | `@` | `185.199.111.153` | 3600 |
-
-#### For the `www` subdomain:
-
-| Type | Host | Value | TTL |
-|------|------|-------|-----|
-| CNAME | `www` | `[your-username].github.io` | 3600 |
-
-### Step 3 — Verify
-
-After 24–48 hours for DNS propagation:
-- Visit `www.lionstreetlearning.com` — it should load your site.
-- In GitHub Settings → Pages, click **Verify** next to your custom domain.
-- Enable **Enforce HTTPS** for a secure connection.
-
-> **Tip:** Use [whatsmydns.net](https://www.whatsmydns.net) to check DNS propagation status globally.
+After 24–48 hours, open your custom domain, then in GitHub **Settings → Pages** use **Verify** and turn on **Enforce HTTPS**. You can check propagation at [whatsmydns.net](https://www.whatsmydns.net).
 
 ---
 
-## Customization Guide
+## Customization
 
-### Colors (CSS Variables)
+### Colors
 
-All brand colors are defined as CSS custom properties at the top of `css/style.css`:
+Brand colors are in `css/style.css` under `:root`:
 
 ```css
-:root {
-  --clr-primary:       #F5A623;  /* Amber gold */
-  --clr-primary-dark:  #D4850A;
-  --clr-primary-light: #FEF3D8;
-  --clr-secondary:     #1E3A5F;  /* Navy blue */
-  --clr-secondary-med: #2D5B8E;
-  --clr-accent:        #FF6B6B;  /* Coral */
-}
+--clr-primary:       #4db6ac;
+--clr-primary-dark:  #0a453d;
+--clr-secondary:     #0a453d;
+--clr-accent:        #f6b49b;
+--clr-bg:            #f8eadd;
+--clr-surface:       #FFFFFF;
+/* … plus borders, text, shadows */
 ```
 
-Change these values to instantly re-theme the entire site.
+Change these to re-theme the site.
 
 ### Fonts
 
-The site uses [Google Fonts](https://fonts.google.com):
-- **Poppins** — headings, logo, buttons
-- **Inter** — body text
+- **Google Fonts:** Poppins (headings, UI), Inter (body). Linked in each HTML `<head>`.
+- **Self-hosted:** Madelyn (e.g. hero “Learning & Play”) in `/fonts/`, loaded via `@font-face` in `style.css`.
 
-To change fonts, update the `<link>` tag in each HTML `<head>` and the variables in `style.css`:
-
-```css
---font-display: 'Your Heading Font', sans-serif;
---font-body:    'Your Body Font', sans-serif;
-```
-
-### Contact Form
-
-The current form has client-side-only handling (simulated submission). To wire up real form submissions, choose one of:
-
-- **[Formspree](https://formspree.io)** — free tier, just change `action="#"` to your Formspree endpoint
-- **[Netlify Forms](https://docs.netlify.com/forms/setup/)** — add `netlify` attribute if deploying to Netlify
-- **[EmailJS](https://www.emailjs.com)** — send emails directly from client-side JS
-- A custom backend endpoint
+Update the `<link>` tags and CSS variables if you switch fonts.
 
 ---
 
