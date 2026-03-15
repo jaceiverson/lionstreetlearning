@@ -25,7 +25,7 @@
   /* Brand Colors */
   --clr-primary:        #4db6ac;
   --clr-primary-dark:   #0a453d;
-  --clr-primary-light:  #f2e8d5;
+  --clr-primary-light:  #f0c5b1; /* was #f2e8d5; alt for cooler look: #6b7280 */
   --clr-secondary:      #0a453d;
   --clr-secondary-med:  #4a5568;
   --clr-accent:         #f6b49b;
@@ -678,7 +678,7 @@ p {
 
 /* ── 10. HOME — Hero ────────────────────────────────────── */
 .hero {
-  background: linear-gradient(155deg, #fdfaf8 0%, #f8eadd 55%, #f2e8d5 100%);
+  background: linear-gradient(155deg, #fdfaf8 0%, #f8eadd 55%, var(--clr-primary-light) 100%);
   padding-top: calc(80px + var(--sp-3xl));
   padding-bottom: 0;
   overflow: hidden;
