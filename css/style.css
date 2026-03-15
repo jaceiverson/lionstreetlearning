@@ -82,6 +82,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -91,6 +92,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 img {
@@ -869,6 +871,7 @@ p {
 .stats__item {
   padding: var(--sp-md);
   position: relative;
+  min-width: 0; /* allow grid item to shrink on narrow viewports */
 }
 
 .stats__item:not(:last-child)::after {
@@ -1851,9 +1854,16 @@ p {
   .hero__badge--tl { left: 0; }
   .hero__badge--br { right: 0; }
 
-  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-md);
+    max-width: none;
+  }
+  .stats__item::after { display: none; }
   .features__grid { grid-template-columns: repeat(2, 1fr); }
   .services-preview__grid { grid-template-columns: repeat(2, 1fr); }
+  .container { padding-inline: var(--sp-md); }
+  .nav__inner { padding-inline: var(--sp-md); }
 
   .about-snippet__inner { grid-template-columns: 1fr; }
 
@@ -1907,6 +1917,9 @@ p {
     --sp-2xl: 2.5rem;
   }
 
+  .container { padding-inline: var(--sp-sm); }
+  .nav__inner { padding-inline: var(--sp-sm); }
+
   .features__grid { grid-template-columns: 1fr; }
   .services-preview__grid { grid-template-columns: 1fr; }
   .about-snippet__checklist { grid-template-columns: 1fr; }
@@ -1923,15 +1936,36 @@ p {
   .process__steps { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 
-  .stats__grid { grid-template-columns: repeat(3, 1fr); max-width: none; }
+  /* Stats: single column on small screens to prevent overflow */
+  .stats__grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-sm);
+    max-width: none;
+  }
+  .stats__item { padding: var(--sp-sm) var(--sp-md); }
   .stats__item::after { display: none; }
+  .stats__number { font-size: 2rem; }
 
   .contact-form { padding: var(--sp-lg); }
+}
+
+/* Extra small phones: tighter padding, smaller stats text */
+@media (max-width: 380px) {
+  .container { padding-inline: var(--sp-xs); }
+  .nav__inner { padding-inline: var(--sp-xs); }
+  .stats__number { font-size: 1.75rem; }
+  .stats__label { font-size: 0.8rem; }
+  .coming-soon {
+    padding: var(--sp-xl) var(--sp-sm);
+    padding-top: calc(80px + var(--sp-md));
+  }
+  .coming-soon h1 { font-size: 1.75rem; }
 }
 
 /* ── Coming Soon ──────────────────────────────────────────── */
 .coming-soon {
   padding: var(--sp-3xl) var(--sp-md);
+  padding-top: calc(80px + var(--sp-xl)); /* clear fixed nav + a little space */
   background: var(--clr-bg);
   min-height: 60vh;
   display: flex;
